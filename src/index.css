@@ -101,24 +101,124 @@
   }
 
   .sakura-float {
-    animation: sakura-fall 15s ease-in-out infinite;
+    animation: sakura-fall 12s linear infinite;
+    pointer-events: none;
   }
 
   @keyframes sakura-fall {
     0% {
-      transform: translateY(-10px) translateX(0) rotate(0deg);
+      transform: translateY(-20px) translateX(0) rotate(0deg) scale(0);
       opacity: 0;
     }
-    10% {
+    5% {
       opacity: 1;
+      transform: translateY(0) translateX(0) rotate(0deg) scale(1);
     }
-    90% {
-      opacity: 1;
+    50% {
+      transform: translateY(50vh) translateX(60px) rotate(180deg) scale(1.2);
     }
     100% {
-      transform: translateY(100vh) translateX(100px) rotate(360deg);
+      transform: translateY(110vh) translateX(-40px) rotate(360deg) scale(0.8);
       opacity: 0;
     }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .hero-title {
+    animation: hero-entrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes hero-entrance {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .hero-subtitle {
+    animation: fade-slide-up 1s ease-out 0.3s both;
+  }
+
+  @keyframes fade-slide-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-buttons {
+    animation: fade-slide-up 1s ease-out 0.6s both;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 40px rgba(236, 72, 153, 0.6),
+        0 0 60px rgba(236, 72, 153, 0.3);
+    }
+  }
+
+  .interactive-card {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .interactive-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(236, 72, 153, 0.3);
   }
 
   .wave-border {
